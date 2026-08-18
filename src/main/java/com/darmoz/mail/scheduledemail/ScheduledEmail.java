@@ -7,7 +7,6 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Lob;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
@@ -39,8 +38,7 @@ public class ScheduledEmail {
     @Column(columnDefinition = "jsonb")
     private Map<String, String> variables;
 
-    @Lob
-    @Column(name = "body_override")
+    @Column(name = "body_override", columnDefinition = "TEXT")
     private String bodyOverride;
 
     @Column(name = "scheduled_at", nullable = false)
@@ -53,8 +51,7 @@ public class ScheduledEmail {
     @Column(nullable = false)
     private int attempts = 0;
 
-    @Lob
-    @Column(name = "last_error")
+    @Column(name = "last_error", columnDefinition = "TEXT")
     private String lastError;
 
     @Column(name = "sent_at")

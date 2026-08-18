@@ -5,7 +5,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Lob;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
@@ -29,12 +28,10 @@ public class EmailTemplate {
     @Column(nullable = false)
     private String subject;
 
-    @Lob
-    @Column(name = "body_html", nullable = false)
+    @Column(name = "body_html", nullable = false, columnDefinition = "TEXT")
     private String bodyHtml;
 
-    @Lob
-    @Column(name = "body_text")
+    @Column(name = "body_text", columnDefinition = "TEXT")
     private String bodyText;
 
     @Column(nullable = false)

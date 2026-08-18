@@ -5,7 +5,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Lob;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
 
@@ -35,8 +34,7 @@ public class EmailAuditLog {
     @Column(name = "scheduled_email_id")
     private Long scheduledEmailId;
 
-    @Lob
-    @Column(name = "body_html")
+    @Column(name = "body_html", columnDefinition = "TEXT")
     private String bodyHtml;
 
     @Column(length = 100)
