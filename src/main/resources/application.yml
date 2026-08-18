@@ -26,6 +26,8 @@ spring:
 
 server:
   port: ${APP_PORT:8080}
+  servlet:
+    context-path: ${DARMOZ_MAIL_PATH_PREFIX:/darmoz-mail}
 
 darmoz:
   mail:
