@@ -1,7 +1,7 @@
 name: Deploy darmoz-mail
 
 on:
-  push: { branches: [main] }
+  push: { branches: [desa] }
   workflow_dispatch: {}
 
 env:
