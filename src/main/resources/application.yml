@@ -5,6 +5,12 @@ spring:
     url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:darmoz_mail}
     username: ${DB_USER:darmoz_mail}
     password: ${DB_PASSWORD:}
+    hikari:
+      # El Postgres compartido del server tiene max_connections=100 y lo usan
+      # todos los backends; el default de Hikari (10) por servicio lo agota.
+      # Con 5 alcanza para el trafico de darmoz-mail.
+      maximum-pool-size: ${DB_POOL_SIZE:5}
+      minimum-idle: 1
   jpa:
     hibernate:
       ddl-auto: validate
